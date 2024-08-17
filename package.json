@@ -1,0 +1,15 @@
+{
+  "name": "videotube_backend",
+  "version": "1.0.0",
+  "description": "bakend for videotube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "backend"
+  ],
+  "author": "Naveen Kumar",
+  "license": "ISC"
+}
