@@ -53,7 +53,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // console.log("req.files-->",req.files)
     const avatarLocaPath = req.files?.avatar[0]?.path;
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;  
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path;  --> "throws error as can't read properties of undefined" while we send an empty string in input
+    let coverImageLocalPath;
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length>0){
+        coverImageLocalPath = req.files.coverImage[0].path;
+    }
+
 
     if(!avatarLocaPath){
         throw new ApiError(400,"avatar file required")
@@ -100,5 +105,4 @@ const registerUser = asyncHandler(async (req, res) => {
     )
 })
 
-export default registerUser 
-
+export default registerUser
